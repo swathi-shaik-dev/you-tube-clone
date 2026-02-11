@@ -1,0 +1,75 @@
+import {SiYoutubegaming} from 'react-icons/si'
+
+import styled from 'styled-components'
+
+export const Container = styled.div`
+  display: flex;
+  min-height: 100vh;
+  font-family: Roboto;
+`
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+`
+export const NoResults = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+`
+export const Image = styled.img`
+  ${props =>
+    props.noResult && 'width:250px; height: 250px; margin-bottom: 10px;'}
+`
+export const Heading = styled.h1`
+  color: ${props => (props.dark ? '#ffffff' : '#181818')};
+  font-size: 30px;
+  margin-bottom: 10px;
+`
+export const Text = styled.p`
+  ${props =>
+    props.noResult &&
+    'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center'}
+`
+export const CustomButton = styled.button`
+  ${props =>
+    props.noResult &&
+    'background-color: #4f46e5; color: #ffffff; font-size: 15px; padding: 8px 10px 8px 10px; border-radius: 5px; border: none; outline: none; cursor: pointer'}
+`
+export const TrendingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+`
+export const Navbar = styled.nav`
+  width: 100%;
+  background-color: ${props => (props.dark ? '#231f20' : '#f1f5f9')};
+  padding: 20px;
+`
+export const IconContainer = styled.div`
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => (props.dark ? ' #0f0f0f' : '#f9f9f9')};
+`
+export const StyledSiYoutubegaming = styled(SiYoutubegaming)`
+  color: #ff0000;
+  height: 25px;
+  width: 25px;
+`
+export const GameContainer = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  list-style-type: none;
+  width: 100%;
+`
