@@ -69,7 +69,7 @@ class Login extends Component {
 
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />
     }
 
     return (
@@ -83,27 +83,27 @@ class Login extends Component {
           return (
             <LoginContainer dark={isDarkTheme}>
               <LoginCard dark={isDarkTheme}>
-                <Image logo alt='website logo' src={watchLogo} />
+                <Image logo alt="website logo" src={watchLogo} />
                 <FormContainer onSubmit={this.onSubmitDetails}>
-                  <Label dark={isDarkTheme} htmlFor='username'>
+                  <Label dark={isDarkTheme} htmlFor="username">
                     USERNAME
                   </Label>
                   <Input
                     dark={isDarkTheme}
-                    type='text'
-                    id='username'
-                    placeholder='Username'
+                    type="text"
+                    id="username"
+                    placeholder="Username"
                     value={username}
                     onChange={this.onChangeUsername}
                   />
-                  <Label dark={isDarkTheme} htmlFor='password'>
+                  <Label dark={isDarkTheme} htmlFor="password">
                     PASSWORD
                   </Label>
                   <Input
                     dark={isDarkTheme}
                     type={passwordType ? 'password' : 'text'}
-                    id='password'
-                    placeholder='Username'
+                    id="password"
+                    placeholder="Password"
                     value={password}
                     onChange={this.onChangePassword}
                   />
@@ -111,15 +111,15 @@ class Login extends Component {
                     <Input
                       dark={isDarkTheme}
                       onChange={this.onShowPassword}
-                      type='checkbox'
-                      id='checkbox'
+                      type="checkbox"
+                      id="checkbox"
                       checkbox
                     />
-                    <Label checkbox dark={isDarkTheme} htmlFor='checkbox'>
+                    <Label checkbox dark={isDarkTheme} htmlFor="checkbox">
                       Show Password
                     </Label>
                   </CheckboxConatiner>
-                  <CustomButton type='submit'>Login</CustomButton>
+                  <CustomButton type="submit">Login</CustomButton>
                   {showError && <Text error>*{errorMsg}</Text>}
                 </FormContainer>
               </LoginCard>

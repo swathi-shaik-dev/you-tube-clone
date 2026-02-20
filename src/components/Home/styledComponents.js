@@ -2,6 +2,12 @@ import {MdClose, MdSearch} from 'react-icons/md'
 
 import styled from 'styled-components'
 
+export const PageContainer = styled.div`
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
 export const Container = styled.div`
   display: flex;
   min-height: 100vh;
@@ -11,40 +17,42 @@ export const Container = styled.div`
 export const Banner = styled.div`
   display: flex;
   justify-content: space-between;
-  background-image: url("https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png");
+  background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   height: 250px;
   background-size: cover;
   width: 100%;
-  padding: 20px;
+  padding: 30px;
 `
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 36%;
 `
 export const Image = styled.img`
-  ${props => props.banner && 'width: 35px; margin-bottom: 10px;'}
+  ${props => props.banner && 'width: 30%; margin-bottom: 10px;'}
   ${props =>
     props.noResult && 'width:250px; height: 250px; margin-bottom: 10px;'}
 `
 export const Text = styled.p`
   ${props =>
-    props.banner && 'color: #231f20; font-size: 25px; margin-bottom: 15px;'}
+    props.banner && 'color: #231f20; font-size: 20px; margin-bottom: 15px;'}
 
   ${props =>
     props.noResult &&
     'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center'}
 `
 export const CustomButton = styled.button`
+  border: none;
   ${props =>
     props.banner &&
-    'border: 1px solid #0f0f0f; color: #0f0f0f; font-size: 25px; padding: 8px 10px 8px 10px;'}
+    'align-self:flex-start; margin-top:20px; background:transparent; border: 1px solid #000000; color: #000000; font-size: 13px; padding: 8px 10px 8px 10px;'}
+
   ${props =>
     props.close &&
-    'border: none; outline: none; cursor: pointer; height: 20px; width: 20px;'}
+    'border: none; outline: none; cursor: pointer; align-self: flex-start; background: none;'}
   ${props =>
     props.search &&
-    'border: 1px solid #383838; background: transparent; color: #383838; height: 25px; width: 80px; text-align: center;'}
+    'border-left: 1px solid #383838; outline:none; background: transparent; color: #383838; height: 36px; width: 80px; text-align: center;'}
 
   ${props =>
     props.noResult &&
@@ -58,15 +66,16 @@ export const StyledMdClose = styled(MdClose)`
 
 export const StyledMdSearch = styled(MdSearch)`
   height: 20px;
-  width: 20px; 
+  width: 20px;
 `
 
 export const HomeContainer = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  background-color: ${props => (props.dark ? '#181818' : '#f9f9f9')};
+  background-color: ${props => (props.dark ? '#181818' : '#f1f5f9')};
   font-family: Roboto;
+  overflow-y: auto;
 `
 export const HomeVideosContainer = styled.div`
   display: flex;
@@ -77,11 +86,14 @@ export const HomeVideosContainer = styled.div`
 export const SearchContainer = styled.div`
   display: flex;
   width: 40%;
+  border: 1px solid #383838;
 `
 export const Input = styled.input`
-  border: 1px solid #383838;
+  border: none;
+  cursor: pointer;
   flex-grow: 1;
-  height: 25px;
+
+  outline: none;
   padding: 10px;
   color: ${props => (props.dark ? '#ffffff' : '#181818')};
   font-size: 15px;

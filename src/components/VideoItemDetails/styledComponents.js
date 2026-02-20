@@ -4,6 +4,12 @@ import {BsDot} from 'react-icons/bs'
 
 import styled from 'styled-components'
 
+export const PageContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
 export const Container = styled.div`
   display: flex;
   min-height: 100vh;
@@ -66,31 +72,32 @@ export const VideoContainer = styled.div`
 `
 
 export const Text = styled.p`
-${props =>
-  props.noResult &&
-  'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center;'}
+  margin: 0 0 8px 10px;
+  ${props =>
+    props.noResult &&
+    'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center;'}
+
+  ${props =>
+    props.dark && props.title
+      ? 'color: #f9f9f9; font-size: 15px; font-weight: 500;'
+      : null}
 
 ${props =>
-  props.dark && props.title
-    ? 'color: #f9f9f9; font-size: 15px; font-weight: 500;'
-    : null}
-
-${props =>
-  !props.dark && props.title
-    ? 'color: #181818; font-size: 15px; font-weight: 500;'
-    : null}
+    !props.dark && props.title
+      ? 'color: #181818; font-size: 15px; font-weight: 500;'
+      : null}
 
 ${props => props.view && 'color: #606060; font-size: 13px;'}
 
 ${props =>
-  props.profile && props.dark
-    ? 'color: #f9f9f9; font-size: 13px; font-weight: 500;'
-    : null}
+    props.profile && props.dark
+      ? 'color: #f9f9f9; font-size: 13px; font-weight: 500;'
+      : null}
 
 ${props =>
-  props.profile && !props.dark
-    ? 'color: #0f0f0f; font-size: 13px; font-weight: 500;'
-    : null}
+    props.profile && !props.dark
+      ? 'color: #0f0f0f; font-size: 13px; font-weight: 500;'
+      : null}
 `
 export const ViewsLikeContainer = styled.div`
   display: flex;
@@ -127,7 +134,7 @@ export const StyledMdOutlinePlaylistAdd = styled(RiMenuAddFill)`
   height: 15px;
   width: 15px;
   margin-right: 5px;
-  color: ${props => (props.active ? '#3b82f6' : ' #606060')} ;
+  color: ${props => (props.active ? '#3b82f6' : ' #606060')};
 `
 export const StyledHr = styled.hr`
   border: 1px solid #606060;

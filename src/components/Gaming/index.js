@@ -6,6 +6,7 @@ import Header from '../Header'
 import Sidebar from '../Sidebar'
 import GameCard from '../GameCard'
 import {
+  PageContainer,
   LoaderContainer,
   NoResults,
   GameContainer,
@@ -149,13 +150,13 @@ class Gaming extends Component {
 
   render() {
     return (
-      <>
+      <PageContainer>
         <Header />
         <Container>
           <Sidebar />
           {this.renderGamingView()}
         </Container>
-      </>
+      </PageContainer>
     )
   }
 }

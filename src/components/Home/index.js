@@ -6,6 +6,7 @@ import Header from '../Header'
 import Sidebar from '../Sidebar'
 import VideoItem from '../VideoItem'
 import {
+  PageContainer,
   LoaderContainer,
   VideosContainer,
   NoResults,
@@ -192,7 +193,7 @@ class Home extends Component {
           const {isDarkTheme} = value
 
           return (
-            <>
+            <PageContainer>
               <Header />
               <Container>
                 <Sidebar />
@@ -248,7 +249,7 @@ class Home extends Component {
                   </HomeVideosContainer>
                 </HomeContainer>
               </Container>
-            </>
+            </PageContainer>
           )
         }}
       </AppContext.Consumer>

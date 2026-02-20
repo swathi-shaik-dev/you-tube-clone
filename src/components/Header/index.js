@@ -25,7 +25,7 @@ const Header = () => (
       return (
         <Navbar dark={isDarkTheme ? 'dark' : null}>
           <StyledLink to="/">
-            <Image alt="website logo" src={watchLogo} />
+            <Image logo alt="website logo" src={watchLogo} />
           </StyledLink>
           <IconsContainer>
             <CustomButton

@@ -6,6 +6,7 @@ import Header from '../Header'
 import Sidebar from '../Sidebar'
 import VideosList from '../VideosList'
 import {
+  PageContainer,
   LoaderContainer,
   TrendingContainer,
   IconContainer,
@@ -151,13 +152,13 @@ class Trending extends Component {
 
   render() {
     return (
-      <>
+      <PageContainer>
         <Header />
         <Container>
           <Sidebar />
           {this.renderTrendingView()}
         </Container>
-      </>
+      </PageContainer>
     )
   }
 }

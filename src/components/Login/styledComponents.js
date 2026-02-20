@@ -26,35 +26,39 @@ export const FormContainer = styled.form`
   background: transparent;
 `
 export const Label = styled.label`
-  color: ${props => (props.dark ? '#ffffff' : '#7e858e')};
-  font-size: ${props => (props.checkbox ? '18px' : '15px')};
+  color: ${props => (props.dark ? '#ffffff' : '#0f0f0f')};
+  font-size: ${props => (props.checkbox ? '14px' : '13px')};
   font-weight: 500;
   margin-bottom: 8px;
   color: ${props => props.checkbox && '#0f0f0f'};
+  margin: ${props => props.checkbox && '0 0 0 5px'};
 `
 export const Input = styled.input`
   border: 1px solid #94a3b8;
-  padding: 10px;
-  color: ${props => (props.dark ? '#ffffff' : '#7e858e')};
-  font-size: 18px;
+  padding: 8px;
+  color: ${props => (props.dark ? '#ffffff' : '#0f0f0f')};
+  font-size: 14px;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
   margin-bottom: ${props => !props.checkbox && '15px'};
   border: ${props => props.checkbox && '1px solid #616e7c'};
   margin-right: ${props => props.checkbox && '8px'}
-  height: ${props => !props.checkbox && '30px'};
+  height: ${props => !props.checkbox && '20px'};
   border: ${props => props.dark && 'none'};
   background: transparent;
 `
 export const CheckboxConatiner = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 `
 export const CustomButton = styled.button`
   background-color: #3b82f6;
   color: #ffffff;
   border-radius: 10px;
-  height: 30px;
+  padding: 8px 10px 8px 10px;
+  align-self: center;
   border: none;
   outline: none;
   cursor: pointer;

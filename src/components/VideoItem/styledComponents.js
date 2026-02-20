@@ -1,13 +1,12 @@
 import {BsDot} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
   width: 30%;
-  margin-right: 8px;
-  margin-bottom: 15px;
+  margin: 15px;
   font-family: Roboto;
 `
 export const Image = styled.img`
@@ -22,14 +21,21 @@ export const ChannelDesc = styled.div`
   flex-direction: column;
 `
 export const Text = styled.p`
+  margin: 0 0 8px 0;
   ${props =>
-    !props.dark && props.chTitle ? 'color: #313131; font-size: 12px;' : ''}
+    props.chTitle &&
+    css`
+      color: ${props.dark ? '#ffffff' : '#313131'};
+      font-size: 15px;
+      font-weight: 500;
+    `}
+
   ${props =>
-    props.dark && props.chTitle ? 'color: #ffffff; font-size: 12px;' : ''}
-  ${props =>
-    !props.dark && props.chName ? 'color: #606060; font-size: 12px;' : ''}
-  ${props =>
-    props.dark && props.chName ? 'color: #909090; font-size: 12px;' : ''}
+    props.chName &&
+    css`
+      color: ${props.dark ? '#909090' : '#606060'};
+      font-size: 14px;
+    `}
 `
 export const ViewsContainer = styled.div`
   display: flex;

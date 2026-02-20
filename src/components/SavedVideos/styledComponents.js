@@ -2,6 +2,12 @@ import {RiMenuAddFill} from 'react-icons/ri'
 
 import styled from 'styled-components'
 
+export const PageContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
 export const Container = styled.div`
   display: flex;
   min-height: 100vh;
@@ -34,11 +40,14 @@ export const TrendingContainer = styled.div`
   flex-direction: column;
   flex-grow: 1;
   background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  overflow-y: auto;
 `
 export const Navbar = styled.nav`
   width: 100%;
   background-color: ${props => (props.dark ? '#231f20' : '#f1f5f9')};
   padding: 20px;
+  display: flex;
+  align-items: center;
 `
 export const IconContainer = styled.div`
   border-radius: 100%;

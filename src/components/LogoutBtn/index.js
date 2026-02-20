@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 import AppContext from '../../context/AppContext'
 import {
-  CustomButton,
+  LogoutButton,
   BtnContainer,
   LogoutConatiner,
   Text,
@@ -25,9 +25,9 @@ const LogoutBtn = props => (
           <Popup
             modal
             trigger={
-              <CustomButton outline dark={isDarkTheme} type="button">
+              <LogoutButton logout $dark={isDarkTheme} type="button">
                 Logout
-              </CustomButton>
+              </LogoutButton>
             }
             className="popup-content"
           >
@@ -37,17 +37,17 @@ const LogoutBtn = props => (
                   Are you sure, you want to logout?
                 </Text>
                 <BtnContainer>
-                  <CustomButton
-                    outline
-                    dark={isDarkTheme}
+                  <LogoutButton
+                    cancel
+                    $dark={isDarkTheme}
                     type="button"
                     onClick={() => close()}
                   >
                     Cancel
-                  </CustomButton>
-                  <CustomButton logout type="button" onClick={onclickLogout}>
+                  </LogoutButton>
+                  <LogoutButton confirm type="button" onClick={onclickLogout}>
                     Confirm
-                  </CustomButton>
+                  </LogoutButton>
                 </BtnContainer>
               </LogoutConatiner>
             )}

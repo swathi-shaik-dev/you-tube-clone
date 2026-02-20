@@ -10,12 +10,10 @@ export const SideBarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px 0px;
   width: 200px;
-  min-height: 100vh;
   flex-shrink: 0;
   font-family: Roboto;
-  background-color: ${props => (props.dark ? '#212121' : '#ffffff')}
+  background-color: ${props => (props.dark ? '#212121' : '#ffffff')};
 `
 
 export const LinkContainer = styled.ul`
@@ -26,7 +24,7 @@ export const LinkContainer = styled.ul`
 `
 
 export const ListItem = styled.li`
- list-style-type: none;
+  list-style-type: none;
 `
 
 export const StyledLink = styled(NavLink)`
@@ -35,10 +33,11 @@ export const StyledLink = styled(NavLink)`
   color: ${props => (props.dark ? '#e2e8f0' : '#231f20')};
   font-size: 15px;
   &.active {
-    background-color: ${props => (props.dark ? '#424242' : '#94a3b8')};
+    background-color: ${props => (props.dark ? '#424242' : '#f1f5f9')};
     border-radius: 5px;
     font-weight: 600;
     color: ${props => (props.dark ? '#ffffff' : '#000000')};
+  }
   text-decoration: none;
   padding: 10px;
   width: 100%;
@@ -68,7 +67,7 @@ export const StyledSiYoutubegaming = styled(SiYoutubegaming)`
   margin-right: 20px;
   ${StyledLink}.active & {
     color: #ff0000;
-  }  
+  }
 `
 export const StyledMdOutlinePlaylistAdd = styled(RiMenuAddFill)`
   color: ${props => (props.dark ? ' #606060' : '#212121')};
@@ -77,7 +76,7 @@ export const StyledMdOutlinePlaylistAdd = styled(RiMenuAddFill)`
   margin-right: 20px;
   ${StyledLink}.active & {
     color: #ff0000;
-  }   
+  }
 `
 export const ContactContainer = styled.div`
   display: flex;
@@ -86,9 +85,9 @@ export const ContactContainer = styled.div`
 `
 export const Text = styled.p`
   color: ${props => (props.dark ? '#f8fafc' : '#1e293b')};
-  font-size: ${props => props.title && '20px'};
-  font-size: ${props => props.desc && '18px'};
-  font-weight: 600;
+  font-size: ${props => props.title && '15px'};
+  font-size: ${props => props.desc && '15px'};
+  font-weight: 500;
 `
 export const LogoContainer = styled.div`
   display: flex;

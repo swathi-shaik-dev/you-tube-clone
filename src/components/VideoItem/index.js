@@ -18,8 +18,14 @@ const VideoItem = props => (
       const {isDarkTheme} = value
 
       const {videoItem} = props
-      const {id, title, thumbnailUrl, channel, viewCount, publishedAt} =
-        videoItem
+      const {
+        id,
+        title,
+        thumbnailUrl,
+        channel,
+        viewCount,
+        publishedAt,
+      } = videoItem
 
       const formattedChannel = {
         name: channel.name,
@@ -39,18 +45,18 @@ const VideoItem = props => (
                 src={formattedChannel.profileImageUrl}
               />
               <ChannelDesc>
-                <Text dark={isDarkTheme ? 'dark' : null} chTitle>
+                <Text $dark={isDarkTheme ? 'dark' : null} chTitle>
                   {title}
                 </Text>
-                <Text dark={isDarkTheme ? 'dark' : null} chName>
+                <Text $dark={isDarkTheme ? 'dark' : null} chName>
                   {formattedChannel.name}
                 </Text>
                 <ViewsContainer>
-                  <Text dark={isDarkTheme ? 'dark' : null} chName>
+                  <Text $dark={isDarkTheme ? 'dark' : null} chName>
                     {viewCount} views
                   </Text>
                   <StyledBsDot />
-                  <Text dark={isDarkTheme ? 'dark' : null} chName>
+                  <Text $dark={isDarkTheme ? 'dark' : null} chName>
                     {duration}
                   </Text>
                 </ViewsContainer>

@@ -3,6 +3,7 @@ import VideosList from '../VideosList'
 import Header from '../Header'
 import Sidebar from '../Sidebar'
 import {
+  PageContainer,
   Navbar,
   StyledMdOutlinePlaylistAdd,
   Container,
@@ -52,13 +53,13 @@ const SavedVideos = () => (
       )
 
       return (
-        <>
+        <PageContainer>
           <Header />
           <Container>
             <Sidebar />
             {isEmpty ? renderNoSavedVideos() : renderSavedVideos()}
           </Container>
-        </>
+        </PageContainer>
       )
     }}
   </AppContext.Consumer>
