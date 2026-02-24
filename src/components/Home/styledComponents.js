@@ -26,21 +26,21 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 36%;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 70%;
   }
 `
 export const Image = styled.img`
   ${props =>
     props.$banner &&
-    'width: 30%; margin-bottom: 10px; @media(width >= 576px){width: 20%;}'}
+    'width: 30%; margin-bottom: 10px; @media(min-width: 576px){width: 20%;}'}
   ${props =>
     props.$noResult && 'width:250px; height: 250px; margin-bottom: 10px;'}
 `
 export const Text = styled.p`
   ${props =>
     props.$banner &&
-    'color: #231f20; font-size: 20px; margin-bottom: 15px; @media (max-width: 768px){font-size: 13px;}'}
+    'color: #231f20; font-size: 20px; margin-bottom: 15px; @media (max-width: 767px){font-size: 13px;}'}
 
   ${props =>
     props.$noResult &&
@@ -50,7 +50,7 @@ export const CustomButton = styled.button`
   border: none;
   ${props =>
     props.$banner &&
-    'align-self:flex-start; margin-top:20px; background:transparent; border: 1px solid #000000; color: #000000; font-size: 13px; padding: 8px 10px 8px 10px; @media (max-width: 768px){font-size: 9px; margin-top: 0px; padding: 5px;}'}
+    'align-self:flex-start; margin-top:20px; background:transparent; border: 1px solid #000000; color: #000000; font-size: 13px; padding: 8px 10px 8px 10px; @media (max-width: 767px){font-size: 9px; margin-top: 0px; padding: 5px;}'}
 
   ${props =>
     props.$close &&
@@ -67,7 +67,7 @@ export const StyledMdClose = styled(MdClose)`
   height: 20px;
   width: 20px;
   color: #0f0f0f;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 15px;
     width: 15px;
   }
@@ -108,7 +108,7 @@ export const SearchContainer = styled.div`
     margin: 15px;
     align-self: center;
   }
-  @media (width >= 576px) {
+  @media (min-width: 576px) {
     width: 75%;
   }
   @media (min-width: 768px) {
