@@ -9,7 +9,7 @@ export const StyledSmallPopup = styled(Popup)`
 `
 
 export const StyledMediumPopup = styled(Popup)`
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `
@@ -35,7 +35,7 @@ export const LogoutButton = styled.button`
       background: transparent;
       border: 2px solid ${props.$dark ? '#ffffff' : '#ff0b37'};
       color: ${props.$dark ? '#ffffff' : '#ff0b37'};
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         display: none;
       }
     `}
