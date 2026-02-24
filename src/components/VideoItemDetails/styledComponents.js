@@ -126,15 +126,14 @@ export const Text = styled.p`
   ${props =>
     props.$views && 'margin-bottom: 20px; color: #64748b; font-size: 13px;'}
 
-  ${props =>
-    props.$profile && props.$dark
-      ? 'margin-bottom: 5px; color: #f9f9f9; font-size: 15px; font-weight: 500;'
-      : null}
-
-  ${props =>
-    props.$profile && !props.$dark
-      ? 'margin-bottom: 5px; color: #0f0f0f; font-size: 15px; font-weight: 500;'
-      : null}
+  ${({$profile,$dark}) => 
+    $profile && 
+    `
+      margin-bottom: 5px; 
+      font-size: 15px;
+      font-weight: 500;
+      color: ${$dark ? '#f9f9f9' : '#0f0f0f'};
+    `}
 `
 export const ViewsLikeContainer = styled.div`
   @media (min-width: 768px) {
@@ -144,7 +143,7 @@ export const ViewsLikeContainer = styled.div`
     margin-bottom: 15px;
     margin-top: 15px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: flex;
     flex-direction: column;
     margin: 20px 0 0 15px;
