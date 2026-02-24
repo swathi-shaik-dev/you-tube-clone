@@ -14,7 +14,7 @@ export const SideBarContainer = styled.div`
   flex-shrink: 0;
   font-family: Roboto;
   background-color: ${props => (props.$dark ? '#212121' : '#ffffff')};
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `
