@@ -21,7 +21,7 @@ export const Image = styled.img`
   ${props =>
     props.$logo
       ? 'width: 40%; @media (width< 576px){width: 50%;} @media(width >= 576px){width: 30%;}'
-      : 'width: 15%; border-radius: 50%; @media (max-width: 768px){display: none;}'}
+      : 'width: 15%; border-radius: 50%; @media (max-width: 767px){display: none;}'}
 `
 export const IconsContainer = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const StyledMdOutlineWbSunny = styled(MdLightMode)`
   width: 30px;
   color: #ffffff;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 23px;
     width: 23px;
   }
@@ -54,7 +54,7 @@ export const StyledFaMoon = styled(MdDarkMode)`
   height: 35px;
   width: 35px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     height: 25px;
     width: 25px;
   }
