@@ -9,7 +9,7 @@ export const GameItem = styled.li`
     margin-right: 10px;
     margin-bottom: 23px;
   }
-  @media (width >= 576px) {
+  @media (min-width: 576px) {
     width: 30%;
     margin-right: 14px;
     margin-bottom: 20px;
@@ -25,7 +25,7 @@ export const StyledLink = styled(Link)`
 export const Image = styled.img`
   ${props =>
     props.$game &&
-    'width: 100%; margin-bottom: 8px; border-radius: 10px; @media(max-width:576px){height: 200px;} @media(width >=576px){height: 250px;} @media(min-width: 768px){height: 300px;}'}
+    'width: 100%; margin-bottom: 8px; border-radius: 10px; @media(max-width:576px){height: 200px;} @media(min-width: 576px){height: 250px;} @media(min-width: 768px){height: 300px;}'}
 `
 export const Text = styled.p`
   margin: 3px;
