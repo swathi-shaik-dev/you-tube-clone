@@ -5,13 +5,24 @@ import styled, {css} from 'styled-components'
 export const ListItem = styled.li`
   display: flex;
   flex-direction: column;
-  width: 30%;
-  margin: 15px;
+
   font-family: Roboto;
+  @media (max-width: 576px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  @media (width>=576px) {
+    width: 45%;
+    margin: 13px;
+  }
+  @media (min-width: 768px) {
+    width: 30%;
+    margin: 15px;
+  }
 `
 export const Image = styled.img`
-  ${props => props.thumbnail && 'width: 100%; margin-bottom: 8px;'}
-  ${props => props.channel && 'width:40px; height: 40px; margin-right: 10px;'}
+  ${props => props.$thumbnail && 'width: 100%; margin-bottom: 8px;'}
+  ${props => props.$channel && 'width:40px; height: 40px; margin-right: 10px;'}
 `
 export const ChannelConatiner = styled.div`
   display: flex;
@@ -23,17 +34,17 @@ export const ChannelDesc = styled.div`
 export const Text = styled.p`
   margin: 0 0 8px 0;
   ${props =>
-    props.chTitle &&
+    props.$chTitle &&
     css`
-      color: ${props.dark ? '#ffffff' : '#313131'};
+      color: ${props.$dark ? '#ffffff' : '#313131'};
       font-size: 15px;
       font-weight: 500;
     `}
 
   ${props =>
-    props.chName &&
+    props.$chName &&
     css`
-      color: ${props.dark ? '#909090' : '#606060'};
+      color: ${props.$dark ? '#909090' : '#606060'};
       font-size: 14px;
     `}
 `
@@ -42,11 +53,9 @@ export const ViewsContainer = styled.div`
   align-items: center;
 `
 export const StyledBsDot = styled(BsDot)`
-  color: ${props => (props.dark ? '#909090' : '#606060')};
-  height: 5px;
-  width: 5px;
-  margin-left: 8px;
-  margin-right: 8px;
+  color: ${props => (props.$dark ? '#909090' : '#606060')};
+  height: 15px;
+  width: 15px;
 `
 export const StyledLink = styled(Link)`
   text-decoration: none;

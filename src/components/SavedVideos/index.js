@@ -23,28 +23,28 @@ const SavedVideos = () => (
       const isEmpty = savedVideos.length === 0
 
       const renderNoSavedVideos = () => (
-        <NoResults dark={isDarkTheme}>
+        <NoResults $dark={isDarkTheme}>
           <Image
-            noResult
+            $noResult
             alt="no saved videos"
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
           />
-          <Heading dark={isDarkTheme} noResult>
+          <Heading $dark={isDarkTheme} $noResult>
             No Saved Videos found
           </Heading>
-          <Text noResult>You can save your videos while watching them.</Text>
+          <Text $noResult>You can save your videos while watching them.</Text>
         </NoResults>
       )
 
       const renderSavedVideos = () => (
-        <TrendingContainer data-testid="savedVideos" dark={isDarkTheme}>
-          <Navbar dark={isDarkTheme}>
-            <IconContainer dark={isDarkTheme}>
+        <TrendingContainer data-testid="savedVideos" $dark={isDarkTheme}>
+          <Navbar $dark={isDarkTheme}>
+            <IconContainer $dark={isDarkTheme}>
               <StyledMdOutlinePlaylistAdd />
             </IconContainer>
-            <Heading dark={isDarkTheme}>Saved Videos</Heading>
+            <Heading $dark={isDarkTheme}>Saved Videos</Heading>
           </Navbar>
-          <VideoContainer dark={isDarkTheme}>
+          <VideoContainer $dark={isDarkTheme}>
             {savedVideos.map(each => (
               <VideosList key={each.id} videoCard={each} />
             ))}

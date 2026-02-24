@@ -10,6 +10,7 @@ import {
   Content,
   Text,
   ViewsContainer,
+  ProfileImage,
 } from './styledComponents'
 
 const VideosList = props => (
@@ -25,18 +26,25 @@ const VideosList = props => (
       return (
         <ItemCard>
           <StyledLink to={`/videos/${id}`}>
-            <Image video alt="video thumbnail" src={thumbnailUrl} />
-            <Content>
-              <Text title dark={isDarkTheme}>
-                {title}
-              </Text>
-              <Text channel>{channel.name}</Text>
-              <ViewsContainer>
-                <Text channel>{viewCount} views</Text>
-                <StyledBsDot />
-                <Text channel>{duration}</Text>
-              </ViewsContainer>
-            </Content>
+            <Image $video alt="video thumbnail" src={thumbnailUrl} />
+            <ProfileImage>
+              <Image
+                $profile
+                alt={channel.name}
+                src={channel.profile_image_url}
+              />
+              <Content>
+                <Text $dark={isDarkTheme} $title>
+                  {title}
+                </Text>
+                <Text $channel>{channel.name}</Text>
+                <ViewsContainer>
+                  <Text $channel>{viewCount} views</Text>
+                  <StyledBsDot />
+                  <Text $channel>{duration}</Text>
+                </ViewsContainer>
+              </Content>
+            </ProfileImage>
           </StyledLink>
         </ItemCard>
       )

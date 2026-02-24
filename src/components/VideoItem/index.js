@@ -37,26 +37,26 @@ const VideoItem = props => (
       return (
         <ListItem>
           <StyledLink to={`/videos/${id}`}>
-            <Image thumbnail alt="video thumbnail" src={thumbnailUrl} />
+            <Image $thumbnail alt="video thumbnail" src={thumbnailUrl} />
             <ChannelConatiner>
               <Image
-                channel
+                $channel
                 alt="channel logo"
                 src={formattedChannel.profileImageUrl}
               />
               <ChannelDesc>
-                <Text $dark={isDarkTheme ? 'dark' : null} chTitle>
+                <Text $dark={isDarkTheme} $chTitle>
                   {title}
                 </Text>
-                <Text $dark={isDarkTheme ? 'dark' : null} chName>
+                <Text $dark={isDarkTheme} $chName>
                   {formattedChannel.name}
                 </Text>
                 <ViewsContainer>
-                  <Text $dark={isDarkTheme ? 'dark' : null} chName>
+                  <Text $dark={isDarkTheme} $chName>
                     {viewCount} views
                   </Text>
                   <StyledBsDot />
-                  <Text $dark={isDarkTheme ? 'dark' : null} chName>
+                  <Text $dark={isDarkTheme} $chName>
                     {duration}
                   </Text>
                 </ViewsContainer>

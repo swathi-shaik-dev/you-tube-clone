@@ -16,6 +16,7 @@ import {
   StyledBsDot,
   StyledHr,
   StyledMdOutlinePlaylistAdd,
+  Wrapper,
   VideoContainer,
   VideoDetailsContainer,
   ViewsContainer,
@@ -43,6 +44,10 @@ class VideoItemDetails extends Component {
   }
 
   componentDidMount() {
+    this.getVideoDetails()
+  }
+
+  onClickRetry() {
     this.getVideoDetails()
   }
 
@@ -100,7 +105,7 @@ class VideoItemDetails extends Component {
         const {isDarkTheme} = value
 
         return (
-          <LoaderContainer dark={isDarkTheme} data-testid="loader">
+          <LoaderContainer $dark={isDarkTheme} data-testid="loader">
             <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
           </LoaderContainer>
         )
@@ -119,8 +124,14 @@ class VideoItemDetails extends Component {
         } = value
         const {videoDetails, isLiked, isDisliked} = this.state
 
-        const {title, videoUrl, channel, viewCount, publishedAt, description} =
-          videoDetails
+        const {
+          title,
+          videoUrl,
+          channel,
+          viewCount,
+          publishedAt,
+          description,
+        } = videoDetails
 
         const isSaved = savedVideos.some(each => each.id === videoDetails.id)
 
@@ -143,44 +154,52 @@ class VideoItemDetails extends Component {
         return (
           <VideoDetailsContainer
             data-testid="videoItemDetails"
-            dark={isDarkTheme}
+            $dark={isDarkTheme}
           >
-            <VideoContainer>
-              <ReactPlayer url={videoUrl} controls width="100%" height="100%" />
-            </VideoContainer>
-            <Text dark={isDarkTheme} title>
+            <Wrapper>
+              <VideoContainer>
+                <ReactPlayer
+                  url={videoUrl}
+                  controls
+                  width="100%"
+                  height="100%"
+                />
+              </VideoContainer>
+            </Wrapper>
+            <Text $dark={isDarkTheme} $title>
               {title}
             </Text>
             <ViewsLikeContainer>
               <ViewsContainer>
-                <Text view>{viewCount} views</Text>
+                <Text $view>{viewCount} views</Text>
                 <StyledBsDot />
-                <Text view>{duration}</Text>
+                <Text $view>{duration}</Text>
               </ViewsContainer>
               <ViewsContainer>
                 <CustomButton
-                  icon
-                  active={isLiked}
+                  $icon
+                  $active={isLiked}
                   type="button"
                   onClick={this.onClickLike}
                 >
-                  <StyledBiLike active={isLiked} /> Like
+                  <StyledBiLike $active={isLiked} />
+                  {isLiked ? 'Liked' : 'Like'}
                 </CustomButton>
                 <CustomButton
-                  icon
-                  active={isDisliked}
+                  $icon
+                  $active={isDisliked}
                   type="button"
                   onClick={this.onClickDislike}
                 >
-                  <StyledBiDislike active={isDisliked} /> Dislike
+                  <StyledBiDislike $active={isDisliked} /> Dislike
                 </CustomButton>
                 <CustomButton
-                  icon
+                  $icon
                   type="button"
-                  active={isSaved}
+                  $active={isSaved}
                   onClick={onClickSave}
                 >
-                  <StyledMdOutlinePlaylistAdd active={isSaved} />
+                  <StyledMdOutlinePlaylistAdd $active={isSaved} />
                   {isSaved ? 'Saved' : 'Save'}
                 </CustomButton>
               </ViewsContainer>
@@ -188,16 +207,18 @@ class VideoItemDetails extends Component {
             <StyledHr />
             <DescContainer>
               <Image
-                profile
+                $profile
                 alt="channel logo"
                 src={formattedChannel.profileImageUrl}
               />
               <ChannelContainer>
-                <Text dark={isDarkTheme} profile>
+                <Text $dark={isDarkTheme} $profile>
                   {formattedChannel.name}
                 </Text>
-                <Text view>{formattedChannel.subscriberCount} subscribers</Text>
-                <Text dark={isDarkTheme} profile>
+                <Text $views>
+                  {formattedChannel.subscriberCount} subscribers
+                </Text>
+                <Text $dark={isDarkTheme} $profile>
                   {description}
                 </Text>
               </ChannelContainer>
@@ -218,16 +239,16 @@ class VideoItemDetails extends Component {
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
         return (
-          <NoResults dark={isDarkTheme}>
-            <Image noResult alt="failure view" src={failureImg} />
-            <Heading dark={isDarkTheme} noResult>
+          <NoResults $dark={isDarkTheme}>
+            <Image $noResult alt="failure view" src={failureImg} />
+            <Heading $dark={isDarkTheme} $noResult>
               Oops! Something Went Wrong
             </Heading>
-            <Text noResult>
+            <Text $noResult>
               We are having some trouble completing your request. Please try
               again.
             </Text>
-            <CustomButton onClick={this.onClickRetry} type="button" noResult>
+            <CustomButton onClick={this.onClickRetry} type="button" $noResult>
               Retry
             </CustomButton>
           </NoResults>

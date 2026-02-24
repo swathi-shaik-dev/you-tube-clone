@@ -18,7 +18,7 @@ export const LoaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
 `
 export const NoResults = styled.div`
   display: flex;
@@ -26,51 +26,56 @@ export const NoResults = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
 `
 export const Image = styled.img`
   ${props =>
-    props.noResult && 'width:250px; height: 250px; margin-bottom: 10px;'}
+    props.$noResult && 'width:250px; height: 250px; margin-bottom: 10px;'}
 `
+
 export const Heading = styled.h1`
-  color: ${props => (props.dark ? '#ffffff' : '#181818')};
-  font-size: 30px;
-  margin-bottom: 10px;
+  color: ${props => (props.$dark ? '#ffffff' : '#181818')};
+  font-size: 23px;
+  font-weight: 600;
 `
+
 export const Text = styled.p`
   ${props =>
-    props.noResult &&
+    props.$noResult &&
     'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center'}
 `
 export const CustomButton = styled.button`
   ${props =>
-    props.noResult &&
+    props.$noResult &&
     'background-color: #4f46e5; color: #ffffff; font-size: 15px; padding: 8px 10px 8px 10px; border-radius: 5px; border: none; outline: none; cursor: pointer'}
 `
 export const TrendingContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
   overflow-y: auto;
 `
+
 export const Navbar = styled.nav`
   width: 100%;
-  background-color: ${props => (props.dark ? '#231f20' : '#f1f5f9')};
-  padding: 20px;
+  background-color: ${props => (props.$dark ? '#231f20' : '#f1f5f9')};
+  padding: 12px 0 13px 28px;
   display: flex;
   align-items: center;
 `
+
 export const IconContainer = styled.div`
   border-radius: 100%;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => (props.dark ? ' #0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? ' #0f0f0f' : '#ffffff')};
   margin-right: 20px;
 `
+
 export const StyledSiYoutubegaming = styled(SiYoutubegaming)`
   color: #ff0000;
   height: 25px;
@@ -79,7 +84,7 @@ export const StyledSiYoutubegaming = styled(SiYoutubegaming)`
 export const GameContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   list-style-type: none;
   width: 100%;
 `

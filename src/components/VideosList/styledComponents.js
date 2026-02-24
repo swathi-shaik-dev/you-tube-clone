@@ -5,14 +5,33 @@ import styled from 'styled-components'
 export const ItemCard = styled.li`
   margin-bottom: 35px;
   display: flex;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 `
 export const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
 `
 export const Image = styled.img`
-  ${props => props.video && 'width: 350px; height: 200px;'}
+  ${props =>
+    props.$profile &&
+    'width: 35px; height: 40px; margin-left: 20px; @media(min-width: 576px){display: none;}'}
+  ${props =>
+    props.$video &&
+    'width: 350px; height: 200px; @media(max-width: 576px){width: 100%;}'}
 `
+
+export const ProfileImage = styled.div`
+  display: flex;
+  @media (max-width: 576px) {
+    margin-top: 13px;
+  }
+`
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,28 +39,30 @@ export const Content = styled.div`
   padding-left: 15px;
 `
 export const Text = styled.p`
-  margin: 5px;
-  ${props =>
-    props.dark && props.title
-      ? 'color: #f9f9f9; font-size: 18px; font-weight: 500;'
-      : null}
+  margin: 0px 0px 3px 0px;
+
+  ${({$title, $dark}) =>
+    $title &&
+    `
+      font-size: 18px;
+      font-weight: 500;
+      color: ${$dark ? '#f9f9f9' : '#181818'};
+       @media(max-width:576px){
+        font-size: 15px;
+        }
+    `}
 
   ${props =>
-    !props.dark && props.title
-      ? 'color: #181818; font-size: 18px; font-weight: 500;'
-      : null}
-
-  ${props =>
-    props.channel && 'color: #606060; font-size: 15px; font-weight: 500'}
+    props.$channel &&
+    'margin: 0px; color: #606060; font-size: 15px; font-weight: 500; @media(max-width:576px){font-size: 12px;}'}
 `
 export const ViewsContainer = styled.div`
   display: flex;
-  align-item: center;
+  align-items: center;
+  margin-top: 3px;
 `
 export const StyledBsDot = styled(BsDot)`
   color: #606060;
-  height: 5px;
-  width: 5px;
-  margin-left: 8px;
-  margin-right: 8px;
+  height: 15px;
+  width: 15px;
 `

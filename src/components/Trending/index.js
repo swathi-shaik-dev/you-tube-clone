@@ -75,7 +75,7 @@ class Trending extends Component {
         const {isDarkTheme} = value
 
         return (
-          <LoaderContainer dark={isDarkTheme} data-testid="loader">
+          <LoaderContainer $dark={isDarkTheme} data-testid="loader">
             <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
           </LoaderContainer>
         )
@@ -90,14 +90,14 @@ class Trending extends Component {
         const {trendingVideos} = this.state
 
         return (
-          <TrendingContainer data-testid="trending" dark={isDarkTheme}>
-            <Navbar dark={isDarkTheme}>
-              <IconContainer dark={isDarkTheme}>
+          <TrendingContainer data-testid="trending" $dark={isDarkTheme}>
+            <Navbar $dark={isDarkTheme}>
+              <IconContainer $dark={isDarkTheme}>
                 <StyledHiFire />
               </IconContainer>
-              <Heading dark={isDarkTheme}>Trending</Heading>
+              <Heading $dark={isDarkTheme}>Trending</Heading>
             </Navbar>
-            <VideoContainer dark={isDarkTheme}>
+            <VideoContainer $dark={isDarkTheme}>
               {trendingVideos.map(each => (
                 <VideosList key={each.id} videoCard={each} />
               ))}
@@ -118,16 +118,16 @@ class Trending extends Component {
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
         return (
-          <NoResults dark={isDarkTheme}>
-            <Image noResult alt="failure view" src={failureImg} />
-            <Heading dark={isDarkTheme} noResult>
+          <NoResults $dark={isDarkTheme}>
+            <Image $noResult alt="failure view" src={failureImg} />
+            <Heading $dark={isDarkTheme} $noResult>
               Oops! Something Went Wrong
             </Heading>
-            <Text noResult>
+            <Text $noResult>
               We are having some trouble completing your request. Please try
               again.
             </Text>
-            <CustomButton onClick={this.onClickRetry} type="button" noResult>
+            <CustomButton onClick={this.onClickRetry} type="button" $noResult>
               Retry
             </CustomButton>
           </NoResults>

@@ -20,7 +20,7 @@ export const LoaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
 `
 export const NoResults = styled.div`
   display: flex;
@@ -28,121 +28,167 @@ export const NoResults = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
 `
 export const Image = styled.img`
-  ${props =>
-    props.noResult && 'width: 250px; height: 250px; margin-bottom: 10px;'}
+  ${({$noResult}) =>
+    $noResult &&
+    `
+      width: 250px;
+      height: 250px;
+      margin-bottom: 10px;
+    `}
 
-  ${props => props.profile && 'width: 40px; height: 40px; margin-right: 10px;'}
+  ${props => props.$profile && 'width: 40px; height: 40px; margin-right: 10px;'}
 `
 export const Heading = styled.h1`
-  color: ${props => (props.dark ? '#ffffff' : '#181818')};
+  color: ${props => (props.$dark ? '#ffffff' : '#181818')};
   font-size: 30px;
   margin-bottom: 10px;
 `
 
 export const CustomButton = styled.button`
+  padding: 0px;
+  display: flex;
+  align-items: center;
   ${props =>
-    props.noResult &&
+    props.$noResult &&
     'background-color: #4f46e5; color: #ffffff; font-size: 15px; padding: 8px 10px 8px 10px; border-radius: 5px; border: none; outline: none; cursor: pointer'}
 
-  ${props =>
-    props.icon && props.active
-      ? 'border: none; background: transparent; color: #2563eb; font-size: 13px; margin-right: 8px; cursor: pointer; outline: none;'
-      : null}
-
-  ${props =>
-    props.icon && !props.active
-      ? 'border: none; background: transparent; color: #64748b; font-size: 13px; margin-right: 8px; cursor: pointer; outline: none;'
-      : null}
+  ${({$icon, $active}) =>
+    $icon &&
+    `border: none;
+     background: transparent;
+     font-size: 15px;
+     margin-right: 20px;
+     cursor: pointer;
+     outline: none;
+     font-weight: ${$active ? 'bold' : 'normal'};
+     color: ${$active ? '#3b82f6' : '#64748b'};
+    `}
 `
 export const VideoDetailsContainer = styled.div`
-  background-color: ${props => (props.dark ? '#0f0f0f' : '#f9f9f9')};
+  background-color: ${props => (props.$dark ? '#0f0f0f' : '#f9f9f9')};
   padding: 20px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  @media (max-width: 576px) {
+    padding: 0px;
+  }
 `
+
+export const Wrapper = styled.div`
+  margin-bottom: 10px;
+  @media (max-width: 576px) {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+  }
+`
+
 export const VideoContainer = styled.div`
+  position: relative;
   width: 100%;
-  height: 500px;
-  margin-bottom: 15px;
-  flex-grow: 1;
+  padding-top: 56.25%;
+
+  iframe,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export const Text = styled.p`
-  margin: 0 0 8px 10px;
+  margin: 0px;
   ${props =>
-    props.noResult &&
+    props.$noResult &&
     'color: #424242; font-size: 20px; margin-bottom: 10px; text-align: center;'}
 
+  ${({$title, $dark}) =>
+    $title &&
+    `
+      font-size: 18px;
+      font-weight: 500;
+      color: ${$dark ? '#f9f9f9' : '#181818'};
+      @media(max-width: 576px){
+        padding: 0 15px 0 15px;
+      }
+    `}
+
+  
+  ${props => props.$view && 'color: #64748b; font-size: 16px;'}
   ${props =>
-    props.dark && props.title
-      ? 'color: #f9f9f9; font-size: 15px; font-weight: 500;'
+    props.$views && 'margin-bottom: 20px; color: #64748b; font-size: 13px;'}
+
+  ${props =>
+    props.$profile && props.$dark
+      ? 'margin-bottom: 5px; color: #f9f9f9; font-size: 15px; font-weight: 500;'
       : null}
 
-${props =>
-    !props.dark && props.title
-      ? 'color: #181818; font-size: 15px; font-weight: 500;'
-      : null}
-
-${props => props.view && 'color: #606060; font-size: 13px;'}
-
-${props =>
-    props.profile && props.dark
-      ? 'color: #f9f9f9; font-size: 13px; font-weight: 500;'
-      : null}
-
-${props =>
-    props.profile && !props.dark
-      ? 'color: #0f0f0f; font-size: 13px; font-weight: 500;'
+  ${props =>
+    props.$profile && !props.$dark
+      ? 'margin-bottom: 5px; color: #0f0f0f; font-size: 15px; font-weight: 500;'
       : null}
 `
 export const ViewsLikeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 15px;
+  }
 `
 
 export const ViewsContainer = styled.div`
   display: flex;
-  align-item: center;
+  align-items: center;
+  margin-bottom: 10px;
 `
 export const StyledBsDot = styled(BsDot)`
-  color: #606060;
-  height: 5px;
-  width: 5px;
-  margin-left: 8px;
-  margin-right: 8px;
+  color: #64748b;
+  height: 25px;
+  width: 25px;
 `
 export const StyledBiLike = styled(BiLike)`
-  height: 15px;
-  width: 15px;
+  height: 23px;
+  width: 23px;
   margin-right: 5px;
-  color: ${props => (props.active ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.$active ? '#3b82f6' : '#64748b')};
+  ${props => props.$active && 'font-weight: bold;'}
 `
 export const StyledBiDislike = styled(BiDislike)`
-  height: 15px;
-  width: 15px;
+  height: 23px;
+  width: 23px;
   margin-right: 5px;
-  color: ${props => (props.active ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.$active ? '#3b82f6' : '#64748b')};
+  ${props => props.$active && 'font-weight: bold;'}
 `
 export const StyledMdOutlinePlaylistAdd = styled(RiMenuAddFill)`
-  height: 15px;
-  width: 15px;
+  height: 23px;
+  width: 23px;
   margin-right: 5px;
-  color: ${props => (props.active ? '#3b82f6' : ' #606060')};
+  color: ${props => (props.$active ? '#3b82f6' : '#64748b')};
+  ${props => props.$active && 'font-weight: bold;'}
 `
 export const StyledHr = styled.hr`
-  border: 1px solid #606060;
+  border: 1px solid #64748b;
   width: 100%;
 `
 export const DescContainer = styled.div`
-  margin-top: 15px;
   display: flex;
+  padding: 15px;
 `
 export const ChannelContainer = styled.div`
   display: flex;

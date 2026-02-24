@@ -73,7 +73,7 @@ class Gaming extends Component {
         const {isDarkTheme} = value
 
         return (
-          <LoaderContainer dark={isDarkTheme} data-testid="loader">
+          <LoaderContainer $dark={isDarkTheme} data-testid="loader">
             <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
           </LoaderContainer>
         )
@@ -88,14 +88,14 @@ class Gaming extends Component {
         const {gamingVideos} = this.state
 
         return (
-          <TrendingContainer data-testid="gaming" dark={isDarkTheme}>
-            <Navbar dark={isDarkTheme ? 'dark' : null}>
-              <IconContainer dark={isDarkTheme ? 'dark' : null}>
+          <TrendingContainer data-testid="gaming" $dark={isDarkTheme}>
+            <Navbar $dark={isDarkTheme}>
+              <IconContainer $dark={isDarkTheme}>
                 <StyledSiYoutubegaming />
               </IconContainer>
-              <Heading dark={isDarkTheme ? 'dark' : null}>Gaming</Heading>
+              <Heading $dark={isDarkTheme}>Gaming</Heading>
             </Navbar>
-            <GameContainer dark={isDarkTheme ? 'dark' : null}>
+            <GameContainer $dark={isDarkTheme}>
               {gamingVideos.map(each => (
                 <GameCard key={each.id} gameCard={each} />
               ))}
@@ -116,16 +116,16 @@ class Gaming extends Component {
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
 
         return (
-          <NoResults dark={isDarkTheme ? 'dark' : null}>
-            <Image noResult alt="failure view" src={failureImg} />
-            <Heading dark={isDarkTheme ? 'dark' : null} noResult>
+          <NoResults $dark={isDarkTheme}>
+            <Image $noResult alt="failure view" src={failureImg} />
+            <Heading $dark={isDarkTheme} $noResult>
               Oops! Something Went Wrong
             </Heading>
-            <Text noResult>
+            <Text $noResult>
               We are having some trouble completing your request. Please try
               again.
             </Text>
-            <CustomButton onClick={this.onClickRetry} type="button" noResult>
+            <CustomButton onClick={this.onClickRetry} type="button" $noResult>
               Retry
             </CustomButton>
           </NoResults>

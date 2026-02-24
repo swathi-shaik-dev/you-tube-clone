@@ -106,19 +106,19 @@ class Home extends Component {
       {value => {
         const {isDarkTheme} = value
         return (
-          <NoResults dark={isDarkTheme}>
+          <NoResults $dark={isDarkTheme}>
             <Image
-              noResult
+              $noResult
               alt="no videos"
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
             />
-            <Heading dark={isDarkTheme ? 'dark' : null} noResult>
+            <Heading $dark={isDarkTheme} $noResult>
               No Search results found
             </Heading>
-            <Text noResult>
+            <Text $noResult>
               Try different key words or remove search filter
             </Text>
-            <CustomButton type="button" noResult>
+            <CustomButton type="button" $noResult>
               Retry
             </CustomButton>
           </NoResults>
@@ -154,15 +154,15 @@ class Home extends Component {
 
         return (
           <NoResults>
-            <Image noResult alt="failure view" src={failureImg} />
-            <Heading dark={isDarkTheme ? 'dark' : null} noResult>
+            <Image $noResult alt="failure view" src={failureImg} />
+            <Heading $dark={isDarkTheme} $noResult>
               Oops! Something Went Wrong
             </Heading>
-            <Text noResult>
+            <Text $noResult>
               We are having some trouble completing your request. Please try
               again.
             </Text>
-            <CustomButton onClick={this.onClickRetry} type="button" noResult>
+            <CustomButton onClick={this.onClickRetry} type="button" $noResult>
               Retry
             </CustomButton>
           </NoResults>
@@ -197,27 +197,24 @@ class Home extends Component {
               <Header />
               <Container>
                 <Sidebar />
-                <HomeContainer
-                  data-testid="home"
-                  dark={isDarkTheme ? 'dark' : null}
-                >
+                <HomeContainer data-testid="home" $dark={isDarkTheme}>
                   {showBanner && (
                     <Banner data-testid="banner">
                       <Content>
                         <Image
-                          banner
+                          $banner
                           alt="nxt watch logo"
                           src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                         />
-                        <Text banner>
+                        <Text $banner>
                           Buy Nxt Watch Premium prepaid plans with UPI
                         </Text>
-                        <CustomButton type="button" banner>
+                        <CustomButton type="button" $banner>
                           GET IT NOW
                         </CustomButton>
                       </Content>
                       <CustomButton
-                        close
+                        $close
                         onClick={this.onCloseBanner}
                         type="button"
                         data-testid="close"
@@ -227,10 +224,10 @@ class Home extends Component {
                     </Banner>
                   )}
                   <HomeVideosContainer>
-                    <SearchContainer>
+                    <SearchContainer $dark={isDarkTheme}>
                       <Input
-                        dark={isDarkTheme ? 'dark' : null}
-                        search
+                        $dark={isDarkTheme}
+                        $search
                         type="search"
                         placeholder="Search"
                         value={searchInput}
@@ -238,7 +235,7 @@ class Home extends Component {
                       />
                       <CustomButton
                         data-testid="searchButton"
-                        search
+                        $search
                         type="button"
                         onClick={this.onSearchVideos}
                       >

@@ -13,7 +13,34 @@ import NotFound from './components/NotFound'
 import './App.css'
 
 class App extends Component {
-  state = {isDarkTheme: false, savedVideos: []}
+  state = {isDarkTheme: false, savedVideos: [], showMenu: false, avatar: ''}
+
+  componentDidMount() {
+    const storedAvatar = localStorage.getItem('avatar')
+    if (storedAvatar) {
+      this.setState({avatar: storedAvatar})
+    }
+  }
+
+  getRandomAvatar = () => {
+    const gender = Math.random() > 0.5 ? 'women' : 'men'
+    const num = Math.floor(Math.random() * 90)
+    return `https://randomuser.me/api/portraits/${gender}/${num}.jpg`
+  }
+
+  generateAvatar = () => {
+    const newAvatar = this.getRandomAvatar()
+    localStorage.setItem('avatar', newAvatar)
+    this.setState({avatar: newAvatar})
+  }
+
+  resetAvatar = () => {
+    this.setState({avatar: ''})
+  }
+
+  onShowMenu = () => {
+    this.setState(prevState => ({showMenu: !prevState.showMenu}))
+  }
 
   onChangeTheme = () => {
     this.setState(prevState => ({isDarkTheme: !prevState.isDarkTheme}))
@@ -32,14 +59,18 @@ class App extends Component {
   }
 
   render() {
-    const {isDarkTheme, savedVideos} = this.state
-
+    const {isDarkTheme, savedVideos, showMenu, avatar} = this.state
+    console.log(avatar)
     return (
       <AppContext.Provider
         value={{
           isDarkTheme,
+          avatar,
+          generateAvatar: this.generateAvatar,
+          resetAvatar: this.resetAvatar,
+          showMenu,
+          onShowMenu: this.onShowMenu,
           changeTheme: this.onChangeTheme,
-
           savedVideos,
           addToSavedVideos: this.addToSavedVideos,
           removeVideoFromSavedVideos: this.removeVideoFromSavedVideos,

@@ -45,7 +45,7 @@ class Login extends Component {
     this.setState({showError: true, errorMsg})
   }
 
-  onSubmitDetails = async event => {
+  onSubmitDetails = async (event, generateAvatar) => {
     event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
@@ -58,6 +58,7 @@ class Login extends Component {
     const response = await fetch(apiUrl, options)
     const data = await response.json()
     if (response.ok === true) {
+      generateAvatar()
       this.onSubmitSuccess(data.jwt_token)
     } else {
       this.onSubmitFailure(data.error_msg)
@@ -75,32 +76,37 @@ class Login extends Component {
     return (
       <AppContext.Consumer>
         {value => {
-          const {isDarkTheme} = value
+          const {isDarkTheme, generateAvatar} = value
           const watchLogo = isDarkTheme
             ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
             : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
           return (
-            <LoginContainer dark={isDarkTheme}>
-              <LoginCard dark={isDarkTheme}>
-                <Image logo alt="website logo" src={watchLogo} />
-                <FormContainer onSubmit={this.onSubmitDetails}>
-                  <Label dark={isDarkTheme} htmlFor="username">
+            <LoginContainer $dark={isDarkTheme}>
+              <LoginCard $dark={isDarkTheme}>
+                <Image $logo alt="website logo" src={watchLogo} />
+                <FormContainer
+                  id="form"
+                  onSubmit={event =>
+                    this.onSubmitDetails(event, generateAvatar)
+                  }
+                >
+                  <Label $dark={isDarkTheme} htmlFor="username">
                     USERNAME
                   </Label>
                   <Input
-                    dark={isDarkTheme}
+                    $dark={isDarkTheme}
                     type="text"
                     id="username"
                     placeholder="Username"
                     value={username}
                     onChange={this.onChangeUsername}
                   />
-                  <Label dark={isDarkTheme} htmlFor="password">
+                  <Label $dark={isDarkTheme} htmlFor="password">
                     PASSWORD
                   </Label>
                   <Input
-                    dark={isDarkTheme}
+                    $dark={isDarkTheme}
                     type={passwordType ? 'password' : 'text'}
                     id="password"
                     placeholder="Password"
@@ -109,18 +115,18 @@ class Login extends Component {
                   />
                   <CheckboxConatiner>
                     <Input
-                      dark={isDarkTheme}
+                      $dark={isDarkTheme}
                       onChange={this.onShowPassword}
                       type="checkbox"
                       id="checkbox"
-                      checkbox
+                      $checkbox
                     />
-                    <Label checkbox dark={isDarkTheme} htmlFor="checkbox">
+                    <Label $checkbox $dark={isDarkTheme} htmlFor="checkbox">
                       Show Password
                     </Label>
                   </CheckboxConatiner>
                   <CustomButton type="submit">Login</CustomButton>
-                  {showError && <Text error>*{errorMsg}</Text>}
+                  {showError && <Text $error>*{errorMsg}</Text>}
                 </FormContainer>
               </LoginCard>
             </LoginContainer>

@@ -11,11 +11,11 @@ const GameCard = props => (
       return (
         <GameItem>
           <StyledLink to={`/videos/${id}`}>
-            <Image game alt="video thumbnail" src={thumbnailUrl} />
-            <Text dark={isDarkTheme ? 'dark' : null} title>
+            <Image $game alt="video thumbnail" src={thumbnailUrl} />
+            <Text $dark={isDarkTheme} $title>
               {title}
             </Text>
-            <Text view>{viewCount} Watching Worldwide</Text>
+            <Text $view>{viewCount} Watching Worldwide</Text>
           </StyledLink>
         </GameItem>
       )
