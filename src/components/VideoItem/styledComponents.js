@@ -11,13 +11,13 @@ export const ListItem = styled.li`
     width: 100%;
     margin-bottom: 15px;
   }
-  @media (width>=576px) {
+  @media (min-width: 576px) {
     width: 45%;
     margin: 13px;
   }
   @media (min-width: 768px) {
     width: 30%;
-    margin: 15px;
+    margin: 1%;
   }
 `
 export const Image = styled.img`
